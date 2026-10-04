@@ -8,7 +8,7 @@ Give it a research question and an explicit scientific objective. Specialists ga
 
 **Current demo checkpoint:** the recorded live integration stopped at resource readiness after a rejected repair. It has no implementation, executed experiment or measured result. The downstream services exist and have offline test coverage; the final live end-to-end demo remains incomplete. See the [final audit](docs/FINAL_AUDIT.md).
 
-## Why AutoLab?
+## What Makes AutoLab’s Approach Different?
 
 AutoLab pursues a larger research objective through small, reviewed steps. The Planner chooses the next useful action from the evidence and remaining uncertainty, with specialist agents responsible for proposing, challenging and carrying out the work.
 
