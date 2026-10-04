@@ -10,9 +10,13 @@ Give it a research question and an explicit scientific objective. Specialists ga
 
 ## Why AutoLab?
 
-Computational research repeatedly moves between literature, hypotheses, experiment design, resources, implementation, evaluation and interpretation. The next useful test depends on what the previous evidence actually showed. Keeping those handoffs consistent—and remembering why a decision was made—is part of the work.
+AutoLab pursues a larger research objective through small, reviewed steps. The Planner chooses the next useful action from the evidence and remaining uncertainty, with specialist agents responsible for proposing, challenging and carrying out the work.
 
-AutoLab coordinates this loop while preserving publication provenance, exact scientific contracts, human decisions, independent reviews and persistent history. Models reason about the science; Python validates transitions, executes admitted experiments and computes canonical metrics.
+- **Competing hypotheses before commitment.** The Hypothesis Agent proposes alternatives; the Scientific Critic reviews their scientific validity, and the Planner selects a reviewed hypothesis to investigate. Our live planning demo generated three hypotheses, reviewed two experiment candidates and selected one design. Rejected alternatives remain in the research history.
+- **Small experiments that guide the next decision.** The Planner favors the smallest informative test. After reviewed results, it can gather more evidence, refine a hypothesis, request a follow-up or stop. This approach aims to reduce wasted work before committing to a larger experiment; negative and inconclusive findings still inform the next step.
+- **Separate creators and evaluators.** The Scientific Critic reviews hypotheses, experiment designs and result interpretations. A Readiness Auditor checks prepared resources, while a Code Auditor checks implementation fidelity. Preparation and implementation agents cannot approve their own work.
+- **Software-enforced checks alongside model review.** Python validates workflow transitions, checks execution prerequisites and computes canonical metrics from raw observations. A model's PASS verdict cannot override failed deterministic checks; reviewer agreement alone does not establish scientific truth.
+- **Traceable, controlled research.** A persistent SQLite ledger retains sources, decisions, reviews and results. Versioned experiment contracts fix controls and metrics before execution, while resource/code hashes tie artifacts to their reviews. Human approval applies to an exact experiment version and action scope, with time and research-round limits bounding the workflow.
 
 ## Quick Start
 
