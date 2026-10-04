@@ -6,6 +6,8 @@ Give it a research question and an explicit scientific objective. Specialists ga
 
 **Question → Evidence → Hypothesis → Experiment → Result → Reviewed Analysis → Next Scientific Decision ↺**
 
+[![AutoLab architecture: the Planner coordinates research agents, critics, auditors and human approval, with reviewed results feeding the next decision and a persistent research ledger.](docs/images/autolab-workflow.png)](docs/images/autolab-workflow.png)
+
 **Current demo checkpoint:** the recorded live integration stopped at resource readiness after a rejected repair. It has no implementation, executed experiment or measured result. The downstream services exist and have offline test coverage; the final live end-to-end demo remains incomplete. See the [final audit](docs/FINAL_AUDIT.md).
 
 ## What Makes AutoLab’s Approach Different?
