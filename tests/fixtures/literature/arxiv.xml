@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:arxiv="http://arxiv.org/schemas/atom">
+  <entry>
+    <id>http://arxiv.org/abs/2401.00001v2</id><title>Tool Recovery Study</title>
+    <published>2024-01-02T00:00:00Z</published><updated>2024-02-01T00:00:00Z</updated>
+    <summary>Recovery improved task success in this benchmark.</summary>
+    <author><name>Fixture Author</name></author><arxiv:doi>10.1234/recovery</arxiv:doi>
+    <category term="cs.AI"/><link title="pdf" href="https://arxiv.org/pdf/2401.00001v2"/>
+  </entry>
+  <entry>
+    <id>https://arxiv.org/abs/2501.00002</id><title>A Reproducible Method</title>
+    <published>2025-01-02T00:00:00Z</published>
+    <summary>We evaluate failures under a fixed tool call budget.</summary>
+    <author><name>Fixture Method Author</name></author><category term="cs.LG"/>
+  </entry>
+</feed>

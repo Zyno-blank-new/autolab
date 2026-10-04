@@ -1,0 +1,932 @@
+{
+  "provenance": {
+    "source_checkpoint": "results/phase6-experiment-design-smoke.json",
+    "source_checkpoint_sha256": "69182ef36d4dcff69f837a6e27600e8f7c8ef31c28470c91906944bace1aaa9d",
+    "records": "Real saved sources, evidence, the selected hypothesis, both candidate scientific details and their exact-version Critic reviews copied unchanged except for isolated project identity. The fixture charter is newly authored for an empirical question; the original charter/checkpoint is not amended. Unselected hypothesis histories are outside this targeted fixture.",
+    "evidence_limitations": "Abstract-only support is retained exactly. No full-text verification, effect size, experiment result, resource availability, power, approval or completed audit is asserted."
+  },
+  "snapshot": {
+    "charter": {
+      "created_at": "2026-10-04T03:03:24.727976Z",
+      "project_id": "PROJECT_SELECTION_READY",
+      "title": "Controlled agent recovery: empirical protocol fixture",
+      "research_question": "Do error-aware recovery mechanisms improve the reliability of tool-using AI agents compared with blind retry under a fixed tool-call budget?",
+      "objective": "Empirically investigate fixed-budget recovery in a controlled population, distinguishing composite-policy effects from feedback and restart-context mechanisms.",
+      "primary_outcome": "Task success rate",
+      "success_criteria": {
+        "scientific": "An interpretable comparison with one preregistered primary outcome, fair budget accounting, exact-version scientific review, and explicit supported/contradicted/inconclusive interpretations. A favorable result is not required."
+      },
+      "constraints": {
+        "scope": "Fresh empirical integration-test project, not a retrospective literature assessment, deployment estimate or reproduction of a published benchmark.",
+        "evidence_scope": "Six real abstract excerpts motivate competing mechanisms only; they establish no local effect size, adequate sample, deployment prevalence or published budget matching. Exhaustive prior-literature coverage and a novelty claim are outside this local question.",
+        "execution_gates": "Cost/runtime, sample adequacy, resources, context restoration or masking validity, readiness and human approval remain unverified requirements before execution. No audit, availability or approval is claimed.",
+        "planning_envelope": "The $100 / 240-minute fixture ceiling is illustrative; it is not an estimate, observation or spending approval."
+      },
+      "budget_usd": 100,
+      "max_runtime_minutes": 240,
+      "stop_conditions": [
+        "Do not execute without scoped approval and independent readiness validation.",
+        "Report unresolved resource or sample-adequacy limits honestly rather than inventing observations."
+      ],
+      "status": "ACTIVE"
+    },
+    "sources": [
+      {
+        "source_id": "SRC_0001",
+        "project_id": "PROJECT_SELECTION_READY",
+        "title": "Why Retrying Fails: Context Contamination in LLM Agent Pipelines",
+        "authors": [
+          "Zhanfu Yang"
+        ],
+        "year": 2026,
+        "doi": null,
+        "url": "http://arxiv.org/abs/2605.08563v1",
+        "provider": "arxiv",
+        "abstract": "When an LLM agent fails a multi-step tool-augmented task and retries, the failed attempt typically remains in its context window -- contaminating the next attempt and elevating the per-step error rate beyond the base level. This context-contaminated restart phenomenon is widely observed in practice yet entirely lacks formal treatment. We introduce the Context-Contaminated Restart Model (CCRM): a chain of T tool-call steps, each failing with base rate epsilon_0; after any failed attempt, the subsequent attempt operates in contaminated context with elevated error rate epsilon_1 > epsilon_0. Under this model we derive five main results. (R1) An exact closed-form formula for P(succeed in at most K attempts). (R2) A cascade-overhead theorem giving the additional attempts Delta K incurred by contamination versus the clean-restart baseline. (R3) An optimal budget-allocation theorem identifying the pipeline depth T* that maximises success probability for a fixed total budget B=KT; we prove the closed form T* = sqrt(B * log(1/(1-epsilon_1)) / log(1/(1-epsilon_0))), with K*=B/T*. (R4) An information-theoretic lower bound via Le Cam's method showing K_CCRM is tight up to O(1). (R5) A clean-restart dominance theorem quantifying the exact benefit of context-clearing before retry. We validate CCRM on real SWE-bench Verified data: the IID model overestimates pass@3 by 17.4 percentage points (98.6% vs. 81.2%), while CCRM fits with error less than 0.001, implying a cascade ratio of epsilon_1/epsilon_0 = 7.1. Monte Carlo experiments confirm all theoretical predictions.",
+        "metadata": {
+          "abstract_sha256": "53ea7788f841d94a81bee19761845d9f01bee4b4f10fb454ab823b98ff60af68",
+          "arxiv_id": "2605.08563",
+          "categories": [
+            "cs.AI"
+          ],
+          "citation_count": null,
+          "content_level": "abstract",
+          "pdf_url": "https://arxiv.org/pdf/2605.08563v1",
+          "provider_id": "http://arxiv.org/abs/2605.08563v1",
+          "provider_provenance": [
+            {
+              "abstract_sha256": "53ea7788f841d94a81bee19761845d9f01bee4b4f10fb454ab823b98ff60af68",
+              "authors": [
+                "Zhanfu Yang"
+              ],
+              "doi": null,
+              "endpoint": "https://export.arxiv.org/api/query",
+              "provider": "arxiv",
+              "provider_id": "http://arxiv.org/abs/2605.08563v1",
+              "title": "Why Retrying Fails: Context Contamination in LLM Agent Pipelines",
+              "url": "http://arxiv.org/abs/2605.08563v1",
+              "year": 2026
+            }
+          ],
+          "retrieval_metadata": {
+            "published": "2026-05-08T23:50:40Z",
+            "updated": "2026-05-08T23:50:40Z"
+          },
+          "venue": null
+        },
+        "retrieved_at": "2026-10-04T01:55:29.775345Z"
+      },
+      {
+        "source_id": "SRC_0002",
+        "project_id": "PROJECT_SELECTION_READY",
+        "title": "Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis",
+        "authors": [
+          "Penny Chong",
+          "Harshavardhan Abichandani",
+          "Jiyuan Shen",
+          "Atin Ghosh",
+          "Min Pyae Moe",
+          "Yifan Mai",
+          "Daniel Dahlmeier"
+        ],
+        "year": 2026,
+        "doi": null,
+        "url": "http://arxiv.org/abs/2603.15483v1",
+        "provider": "arxiv",
+        "abstract": "Agent applications are increasingly adopted to automate workflows across diverse tasks. However, due to the heterogeneous domains they operate in, it is challenging to create a scalable evaluation framework. Prior works each employ their own methods to determine task success, such as database lookups, regex match, etc., adding complexity to the development of a unified agent evaluation approach. Moreover, they do not systematically account for the user's role nor expertise in the interaction, providing incomplete insights into the agent's performance. We argue that effective agent evaluation goes beyond correctness alone, incorporating conversation quality, efficiency and systematic diagnosis of agent errors. To address this, we introduce the TED framework (Talk, Evaluate, Diagnose). (1) Talk: We leverage reusable, generic expert and non-expert user persona templates for user-agent interaction. (2) Evaluate: We adapt existing datasets by representing subgoals-such as tool signatures, and responses-as natural language grading notes, evaluated automatically with LLM-as-a-judge. We propose new metrics that capture both turn efficiency and intermediate progress of the agent complementing the user-aware setup. (3) Diagnose: We introduce an automated error analysis tool that analyzes the inconsistencies of the judge and agents, uncovering common errors, and providing actionable feedback for agent improvement. We show that our TED framework reveals new insights regarding agent performance across models and user expertise levels. We also demonstrate potential gains in agent performance with peaks of 8-10% on our proposed metrics after incorporating the identified error remedies into the agent's design.",
+        "metadata": {
+          "abstract_sha256": "08e49d62c4b4e479dc0eaf5fa36b14c9df68897bda88ed94b31785327db4205a",
+          "arxiv_id": "2603.15483",
+          "categories": [
+            "cs.AI"
+          ],
+          "citation_count": null,
+          "content_level": "abstract",
+          "pdf_url": "https://arxiv.org/pdf/2603.15483v1",
+          "provider_id": "http://arxiv.org/abs/2603.15483v1",
+          "provider_provenance": [
+            {
+              "abstract_sha256": "08e49d62c4b4e479dc0eaf5fa36b14c9df68897bda88ed94b31785327db4205a",
+              "authors": [
+                "Penny Chong",
+                "Harshavardhan Abichandani",
+                "Jiyuan Shen",
+                "Atin Ghosh",
+                "Min Pyae Moe",
+                "Yifan Mai",
+                "Daniel Dahlmeier"
+              ],
+              "doi": null,
+              "endpoint": "https://export.arxiv.org/api/query",
+              "provider": "arxiv",
+              "provider_id": "http://arxiv.org/abs/2603.15483v1",
+              "title": "Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis",
+              "url": "http://arxiv.org/abs/2603.15483v1",
+              "year": 2026
+            }
+          ],
+          "retrieval_metadata": {
+            "published": "2026-03-16T16:14:28Z",
+            "updated": "2026-03-16T16:14:28Z"
+          },
+          "venue": null
+        },
+        "retrieved_at": "2026-10-04T01:55:29.775473Z"
+      },
+      {
+        "source_id": "SRC_0003",
+        "project_id": "PROJECT_SELECTION_READY",
+        "title": "Retry, Switch, or Abstain? Learning Strategy-Aware Tool-Use Policies via Controlled Error Injection",
+        "authors": [
+          "Chaoran Chen",
+          "Vy Nguyen",
+          "Ziji Zhang",
+          "Abhinav Gullapalli",
+          "Ziyi Wang",
+          "Yuxuan Lu",
+          "Dakuo Wang",
+          "Jing Huang",
+          "Zhou Yu",
+          "Jin Lai"
+        ],
+        "year": 2026,
+        "doi": null,
+        "url": "http://arxiv.org/abs/2608.11977v1",
+        "provider": "arxiv",
+        "abstract": "Tool-using LLM agents are commonly trained and evaluated in environments where tool calls succeed reliably, yet deployed tools can fail transiently, persistently, or silently. Robust recovery therefore requires more than repeated retries: an agent may need to retry the same path, switch to an alternative, or recognize that no viable path remains. We present BENCH2ROBUST, a framework that converts failure-free tool-use benchmarks into controlled stochastic environments with scenario-controlled solvability, where episodes explicitly require retrying, switching, or stopping after available paths are exhausted. We use BENCH2ROBUST to study two complementary interventions: structured runtime recovery context through Bayesian Tool Memory (BTM), and curriculum-controlled reinforcement learning. Across 7 models from 4 families and two multi-turn benchmark families, tool failures produce a near-universal robustness gap. On held-out Retail tasks, BTM improves robustness by up to 16.8 percentage points without retraining, while RL learns complementary recovery behavior that remains beneficial without inference-time BTM. Combining the two reaches 40.8-45.5% under injection while preserving failure-free performance. These results suggest that robust tool use benefits from combining environment-specific recovery knowledge with learned recovery behavior.",
+        "metadata": {
+          "abstract_sha256": "c9b82e297ef3bc7c5e89c1e01d9e2bc69c6036c0abb4f0c47e94b40493176aa2",
+          "arxiv_id": "2608.11977",
+          "categories": [
+            "cs.AI"
+          ],
+          "citation_count": null,
+          "content_level": "abstract",
+          "pdf_url": "https://arxiv.org/pdf/2608.11977v1",
+          "provider_id": "http://arxiv.org/abs/2608.11977v1",
+          "provider_provenance": [
+            {
+              "abstract_sha256": "c9b82e297ef3bc7c5e89c1e01d9e2bc69c6036c0abb4f0c47e94b40493176aa2",
+              "authors": [
+                "Chaoran Chen",
+                "Vy Nguyen",
+                "Ziji Zhang",
+                "Abhinav Gullapalli",
+                "Ziyi Wang",
+                "Yuxuan Lu",
+                "Dakuo Wang",
+                "Jing Huang",
+                "Zhou Yu",
+                "Jin Lai"
+              ],
+              "doi": null,
+              "endpoint": "https://export.arxiv.org/api/query",
+              "provider": "arxiv",
+              "provider_id": "http://arxiv.org/abs/2608.11977v1",
+              "title": "Retry, Switch, or Abstain? Learning Strategy-Aware Tool-Use Policies via Controlled Error Injection",
+              "url": "http://arxiv.org/abs/2608.11977v1",
+              "year": 2026
+            }
+          ],
+          "retrieval_metadata": {
+            "published": "2026-08-12T12:08:39Z",
+            "updated": "2026-08-12T12:08:39Z"
+          },
+          "venue": null
+        },
+        "retrieved_at": "2026-10-04T01:55:29.775570Z"
+      }
+    ],
+    "evidence": [
+      {
+        "created_at": "2026-10-04T01:55:29.775668Z",
+        "evidence_id": "EVID_0001",
+        "project_id": "PROJECT_SELECTION_READY",
+        "source_id": "SRC_0003",
+        "claim": "In controlled stochastic tool-failure settings, the abstract reports that robust recovery requires strategies beyond repeated retries, including switching to alternatives or stopping when no viable path remains.",
+        "supporting_text": "Robust recovery therefore requires more than repeated retries: an agent may need to retry the same path, switch to an alternative, or recognize that no viable path remains.",
+        "location": "abstract",
+        "confidence": 0.95,
+        "tags": [
+          "SUPPORTING",
+          "ABSTRACT_ONLY",
+          "recovery-strategy",
+          "tool-failure",
+          "retry-vs-switch",
+          "agent-reliability"
+        ]
+      },
+      {
+        "created_at": "2026-10-04T01:55:29.775738Z",
+        "evidence_id": "EVID_0002",
+        "project_id": "PROJECT_SELECTION_READY",
+        "source_id": "SRC_0003",
+        "claim": "The abstract reports that Bayesian Tool Memory improved robustness by up to 16.8 percentage points without retraining on held-out Retail tasks, and that combining it with reinforcement learning reached 40.8-45.5% under injected failures while preserving failure-free performance.",
+        "supporting_text": "On held-out Retail tasks, BTM improves robustness by up to 16.8 percentage points without retraining, while RL learns complementary recovery behavior that remains beneficial without inference-time BTM. Combining the two reaches 40.8-45.5% under injection while preserving failure-free performance.",
+        "location": "abstract",
+        "confidence": 0.91,
+        "tags": [
+          "SUPPORTING",
+          "ABSTRACT_ONLY",
+          "bayesian-tool-memory",
+          "reinforcement-learning",
+          "robustness",
+          "controlled-error-injection"
+        ]
+      },
+      {
+        "created_at": "2026-10-04T01:55:29.775801Z",
+        "evidence_id": "EVID_0003",
+        "project_id": "PROJECT_SELECTION_READY",
+        "source_id": "SRC_0001",
+        "claim": "This abstract reports a context-contaminated restart model in which failed attempts left in context increase subsequent per-step error rates above the base level, implying that blind retry can reduce reliability relative to clean restart.",
+        "supporting_text": "When an LLM agent fails a multi-step tool-augmented task and retries, the failed attempt typically remains in its context window -- contaminating the next attempt and elevating the per-step error rate beyond the base level.",
+        "location": "abstract",
+        "confidence": 0.93,
+        "tags": [
+          "CONTRADICTING",
+          "ABSTRACT_ONLY",
+          "blind-retry",
+          "context-contamination",
+          "error-rate",
+          "retry-failure"
+        ]
+      },
+      {
+        "created_at": "2026-10-04T01:55:29.775870Z",
+        "evidence_id": "EVID_0004",
+        "project_id": "PROJECT_SELECTION_READY",
+        "source_id": "SRC_0001",
+        "claim": "The abstract reports validation on SWE-bench Verified where an IID retry model overestimated pass@3 by 17.4 percentage points versus observed performance, and it states a clean-restart dominance theorem quantifying the benefit of clearing context before retry.",
+        "supporting_text": "We validate CCRM on real SWE-bench Verified data: the IID model overestimates pass@3 by 17.4 percentage points (98.6% vs. 81.2%), while CCRM fits with error less than 0.001, implying a cascade ratio of epsilon_1/epsilon_0 = 7.1.",
+        "location": "abstract",
+        "confidence": 0.87,
+        "tags": [
+          "CONTRADICTING",
+          "ABSTRACT_ONLY",
+          "swe-bench",
+          "pass@3",
+          "clean-restart",
+          "fixed-budget-reliability"
+        ]
+      },
+      {
+        "created_at": "2026-10-04T01:55:29.775934Z",
+        "evidence_id": "EVID_0005",
+        "project_id": "PROJECT_SELECTION_READY",
+        "source_id": "SRC_0002",
+        "claim": "This abstract presents a framework for evaluating agent performance that includes efficiency and systematic diagnosis of agent errors in addition to correctness.",
+        "supporting_text": "We argue that effective agent evaluation goes beyond correctness alone, incorporating conversation quality, efficiency and systematic diagnosis of agent errors.",
+        "location": "abstract",
+        "confidence": 0.92,
+        "tags": [
+          "METHOD",
+          "ABSTRACT_ONLY",
+          "evaluation-framework",
+          "efficiency",
+          "error-analysis",
+          "agent-assessment"
+        ]
+      },
+      {
+        "created_at": "2026-10-04T01:55:29.776003Z",
+        "evidence_id": "EVID_0006",
+        "project_id": "PROJECT_SELECTION_READY",
+        "source_id": "SRC_0002",
+        "claim": "The abstract reports that incorporating identified error remedies into agent design yielded peaks of 8-10% improvement on the framework's proposed metrics.",
+        "supporting_text": "We also demonstrate potential gains in agent performance with peaks of 8-10% on our proposed metrics after incorporating the identified error remedies into the agent's design.",
+        "location": "abstract",
+        "confidence": 0.84,
+        "tags": [
+          "METHOD",
+          "ABSTRACT_ONLY",
+          "error-remedies",
+          "performance-improvement",
+          "diagnosis",
+          "metrics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "created_at": "2026-10-04T01:56:02.324915Z",
+        "hypothesis_id": "HYP_0001",
+        "project_id": "PROJECT_SELECTION_READY",
+        "statement": "Under a fixed tool-call budget, error-aware recovery mechanisms that explicitly diagnose a failed attempt and then choose among retry, tool/path switching, or abstention will achieve a higher task success rate than blind retry because they avoid spending remaining calls on known-unpromising recovery paths.",
+        "rationale": "AGENT-GENERATED HYPOTHESIS\nSUPPORTED BY EVIDENCE: EVID_0001 reports that robust recovery may require actions beyond repeated retry, including switching or abstaining. EVID_0002 reports improved robustness from strategy-aware memory and complementary recovery behavior under injected failures. EVID_0006 reports performance gains after incorporating identified error remedies into agent design. EVID_0003 and EVID_0004 additionally suggest that naive retry can degrade reliability when failed attempts contaminate later attempts.\nSCIENTIFIC INFERENCE / PROPOSED EXPLANATION: The proposed mechanism is that explicit error-aware recovery reallocates a limited tool-call budget toward conditionally different next actions after failure, whereas blind retry keeps investing budget in the same failing trajectory. If the recovery policy can detect at least some failures as non-transient or path-specific, success should improve by preserving calls for alternative tools, alternative plans, or early stopping rather than repeated reuse of the same path. Plausible alternatives include no advantage if most failures are transient and same-path retry is usually optimal, or even worse performance if diagnosis overhead consumes budget without improving action selection.",
+        "supporting_evidence_ids": [
+          "EVID_0001",
+          "EVID_0002",
+          "EVID_0006"
+        ],
+        "contradicting_evidence_ids": [],
+        "falsifiable_prediction": "When compared at the same maximum number of tool calls per task, an agent using explicit post-failure diagnosis to choose among retry, switch, or abstain will show a higher task success rate than an otherwise matched blind-retry agent; if success is not higher, this hypothesis is falsified.",
+        "novelty_score": 0.42,
+        "testability_score": 0.93,
+        "scientific_value_score": 0.9,
+        "status": "PROPOSED",
+        "version": 1
+      }
+    ],
+    "reviews": [
+      {
+        "created_at": "2026-10-04T01:56:28.274923Z",
+        "review_id": "HREV_0001",
+        "project_id": "PROJECT_SELECTION_READY",
+        "review_type": "hypothesis",
+        "target_type": "hypotheses",
+        "target_id": "HYP_0001",
+        "target_version": 1,
+        "verdict": "PASS",
+        "severity": "info",
+        "issues": [
+          {
+            "evidence_ids": [
+              "EVID_0001",
+              "EVID_0002"
+            ],
+            "problem": "The proposed mechanism bundles several distinct interventions\u2014diagnosis, retry, switching, and abstention\u2014so the causal contribution of 'error-awareness' versus simply having more recovery options is not isolated.",
+            "resolution": "Clarify in later operationalization whether the comparison isolates post-failure diagnosis from the action set available after failure, or else treat the mechanism as a composite policy claim rather than a single-cause explanation.",
+            "why_it_matters": "If the gain comes from access to alternative actions rather than diagnosis per se, the hypothesis may still be useful but its explanatory claim is overstated."
+          },
+          {
+            "evidence_ids": [
+              "EVID_0001",
+              "EVID_0002",
+              "EVID_0006"
+            ],
+            "problem": "Support is largely abstract-only and comes from controlled or framework-specific settings rather than direct matched fixed-budget head-to-head evidence on the exact claim.",
+            "resolution": "Treat the hypothesis as investigable rather than established, and verify under the exact fixed tool-call budget condition named in the prediction.",
+            "why_it_matters": "This limits how strongly the current literature grounds the expected magnitude and generality of the advantage under the project's target setting."
+          }
+        ],
+        "questions": [
+          "Is the comparator restricted to same-context blind retry, or can blind retry include clean restart between attempts?",
+          "Does 'otherwise matched' include equal access to the same tool set and planning budget apart from the recovery policy?",
+          "Is abstention counted purely as lower success, or as budget preservation that may affect downstream evaluation rules?"
+        ],
+        "recommendations": [
+          "Keep the claim framed as a testable proposal, not a demonstrated finding.",
+          "Ensure later evaluation distinguishes transient failures from non-transient/path-specific ones when interpreting outcomes.",
+          "Interpret any positive result cautiously because current support includes abstract-only evidence and heterogeneous task settings."
+        ],
+        "reviewer_role": "critic"
+      },
+      {
+        "created_at": "2026-10-04T03:08:04.149978Z",
+        "review_id": "ERREV_0001",
+        "project_id": "PROJECT_SELECTION_READY",
+        "review_type": "experiment",
+        "target_type": "experiment_candidates",
+        "target_id": "CAND_0001",
+        "target_version": 1,
+        "verdict": "PASS",
+        "severity": "info",
+        "issues": [
+          {
+            "evidence_ids": [],
+            "problem": "The persistent-path regime makes repeated use of the failed operation unable to succeed, while eligibility guarantees a feasible alternative. This is informative about the specified composite policy, but deliberately creates conditions favorable to switching.",
+            "resolution": "Retain the stated controlled-mixture scope, report the prespecified regime-specific results, and avoid interpreting the aggregate as deployment reliability or diagnosis-specific causality. The proposal already provides these interpretation safeguards.",
+            "why_it_matters": "A positive equal-weight aggregate would establish an advantage in this constructed recovery population, not the prevalence or magnitude of an advantage under natural failures. It also need not demonstrate that explicit diagnosis was necessary."
+          },
+          {
+            "evidence_ids": [
+              "EVID_0003",
+              "EVID_0004"
+            ],
+            "problem": "The primary contrast combines diagnostic action selection, recovery-option use, and potential sensitivity to retained failure context.",
+            "resolution": "Preserve the clean-context comparison and composite-policy framing. Interpret call profiles as corroborating descriptions rather than mediation evidence, and do not treat an unresolved clean-context contrast as proof that contamination explains the result.",
+            "why_it_matters": "The supplied abstracts identify context contamination as a plausible alternative explanation, but do not establish its contribution in this experiment. A positive comparison against retained-context retry alone cannot identify the budget-allocation mechanism."
+          },
+          {
+            "evidence_ids": [
+              "EVID_0002",
+              "EVID_0006"
+            ],
+            "problem": "Resource availability, independent task coverage, and the suitability of the planned cluster-bootstrap interval remain unverified.",
+            "resolution": "Enforce the existing Phase 7 adequacy and resource gates before execution. If the minimum matched contract cannot be supported, record it as not executable or inconclusive rather than weakening the contract or interpreting a noisy null as falsification.",
+            "why_it_matters": "Three arms, two recoverable regimes, validation, and controls may not fit the remaining budget and time. The supplied abstract-only improvements do not establish an effect size or adequate sample for this setting."
+          }
+        ],
+        "questions": [
+          "Can the existing environment restore clean textual context while preserving completed progress, environmental state, and cumulative costs exactly as specified?",
+          "Can the full validation, matched-arm, control, and analysis contract meet the locked adequacy requirements within the available resources?"
+        ],
+        "recommendations": [
+          "Retain the policy-blind evaluator, outcome-independent fault assignments, equal inference ceilings, and zero success credit for abstention; these make the composite comparison scientifically interpretable.",
+          "Freeze the listed Phase 7 choices before evaluation and preserve task-level clustering and assigned-case denominators.",
+          "Limit conclusions to the tested model, budget, task population, and failure mixture. The supplied abstract-only evidence motivates investigation but does not already answer this exact comparison."
+        ],
+        "reviewer_role": "critic"
+      },
+      {
+        "created_at": "2026-10-04T03:08:04.149991Z",
+        "review_id": "ERREV_0002",
+        "project_id": "PROJECT_SELECTION_READY",
+        "review_type": "experiment",
+        "target_type": "experiment_candidates",
+        "target_id": "CAND_0002",
+        "target_version": 1,
+        "verdict": "PASS",
+        "severity": "info",
+        "issues": [
+          {
+            "evidence_ids": [],
+            "problem": "The primary estimand conditions on eligible, recoverable post-failure checkpoints generated under a common prefix policy, rather than measuring success over complete end-to-end trajectories.",
+            "resolution": "Maintain the explicit recovery-stage scope for both support and contradiction. Do not present the checkpoint contrast as confirmation or falsification of an end-to-end deployment advantage. The proposal already states this limitation adequately.",
+            "why_it_matters": "Checkpoint eligibility excludes other failure states and does not measure how frequently these checkpoints arise. A conditional benefit or contradiction cannot establish the corresponding unconditional task-success effect."
+          },
+          {
+            "evidence_ids": [],
+            "problem": "The information ablation is interpretable only if masking removes fault-specific information without removing necessary task facts or creating an independent comprehension penalty. Moreover, masked-feedback minus blind-retry changes both feedback and recovery flexibility, so it is not a pure action-set effect.",
+            "resolution": "Enforce the specified masking-validity gate and outcome-blind audit. Describe diagnostic-minus-masked as the incremental effect of the removed feedback under the matched controller, and the remaining contrast as an exploratory residual\u2014not exclusively the effect of broader recovery options. Equal diagnostic and masked performance cannot establish that all error-awareness is irrelevant.",
+            "why_it_matters": "A diagnostic-minus-masked gain could otherwise reflect damaged input rather than useful recovery information. The additive contrast decomposition is valid algebraically, but does not uniquely identify causal contributions from diagnosis and option breadth."
+          },
+          {
+            "evidence_ids": [
+              "EVID_0001",
+              "EVID_0002",
+              "EVID_0006"
+            ],
+            "problem": "Clonable states, authentic separable feedback, independent task coverage, and total preparation and branching costs have not been audited.",
+            "resolution": "Use the existing Phase 7 gates to verify the complete contract, including prefix preparation and analysis costs. Inadequate coverage or invalid masking must prevent inferential execution; neither can be repaired by treating repeated checkpoints as independent tasks or selling an imprecise null as falsification.",
+            "why_it_matters": "Branching is potentially economical, but prefix preparation, validation, masking audits, and three-condition execution still consume resources. Existing abstract-only findings do not establish the adequacy or feasibility of this information intervention."
+          }
+        ],
+        "questions": [
+          "What existing validation can establish that masking preserves task-relevant facts while removing the intended diagnostic content from every agent-visible field?",
+          "Can checkpoint preparation, isolation, all branches, controls, and analysis satisfy the preregistered adequacy contract within the remaining resource ceiling?"
+        ],
+        "recommendations": [
+          "Retain cumulative prefix-call accounting, matched recovery options for the information contrast, original-task clustering, and outcome-independent checkpoint selection.",
+          "Keep the mechanism contrasts exploratory and distinguish useful feedback from explicit diagnosis itself; the intervention does not isolate every form of error-awareness.",
+          "Treat this as a distinct conditional information test, not a redundant end-to-end comparison or a substitute for one. PASS permits investigation but does not certify resources or spending."
+        ],
+        "reviewer_role": "critic"
+      }
+    ],
+    "candidates": [
+      {
+        "created_at": "2026-10-04T03:06:35.734942Z",
+        "candidate_id": "CAND_0001",
+        "project_id": "PROJECT_SELECTION_READY",
+        "hypothesis_id": "HYP_0001",
+        "hypothesis_version": 1,
+        "title": "Matched fixed-budget task evaluation with a clean-retry control",
+        "objective": "Test whether the complete error-aware recovery policy improves task success over blind retry under an identical maximum tool-call budget, and determine whether any advantage depends on retaining failed attempts in context.",
+        "approach": "Conduct a small, paired end-to-end evaluation on held-out tasks with controlled transient and persistent path-specific failures. Compare error-aware recovery, same-context blind retry, and clean-context blind retry. Treat the primary comparison as a composite-policy test, not proof that diagnosis alone causes improvement.",
+        "expected_information_gain": 0.7,
+        "estimated_cost_usd": null,
+        "estimated_runtime_minutes": null,
+        "feasibility_score": 0.4,
+        "major_risks": [
+          "No existing model, dataset, evaluator, or failure-injection capability has been audited; acquisition is prohibited.",
+          "The available $10 and approximately 30-minute limits may not permit enough independent tasks for interpretable uncertainty estimates.",
+          "Artificial failure distributions may favor switching and may not represent deployment failures.",
+          "A positive composite-policy result cannot independently attribute improvement to diagnosis rather than access to alternative recovery actions."
+        ],
+        "status": "PROPOSED",
+        "design": {
+          "assumptions": [
+            "Observable feedback contains some realistic information relevant to recovery without revealing hidden fault labels or reference answers.",
+            "The common task solver and tool environment are otherwise unchanged across arms.",
+            "There is a recoverable mixture with both transient and path-specific failures; its equal weighting is an experimental choice, not an empirical prevalence claim.",
+            "The reference validator can establish route feasibility independently of agent performance.",
+            "The exact hypothesis and charter remain unchanged; conclusions are limited to the tested operational setting."
+          ],
+          "controls": {
+            "budget_preservation": "Unused calls after abstention cannot be transferred to another task. Abstention earns zero task-success credit.",
+            "compute_accounting": "Give all arms the same per-task model-token and model-invocation ceilings as well as B. Diagnostic reasoning consumes the error-aware arm's allocation; diagnostic tool calls consume B. Report actual use rather than assuming equal use.",
+            "fault_schedule": "Fix fault targets and persistence rules before arm execution. Do not adapt faults to whether an arm appears likely to succeed. Retain assigned cases in the denominator even if an arm never encounters the targeted fault.",
+            "matched_agent": "Use the same model/version, task-solving prompt outside the recovery rule, decoding configuration, initial state, tool catalog, tool descriptions, and task evaluator. Recovery-specific behavior begins only after failure.",
+            "pairing": "Evaluate each task, fault assignment, and seed block in every arm. Clone environment state, isolate caches and memory, and randomize arm execution order.",
+            "review_disposition": {
+              "bundled_mechanism": "ACCEPT: this experiment tests the composite policy; CAND_0002 separately intervenes on diagnostic information.",
+              "clean_restart_comparator": "CLARIFY: the primary comparator retains failed context; a prespecified clean-context comparator tests the contamination alternative.",
+              "equal_access_and_planning": "ACCEPT: tools and inference ceilings are matched, with diagnostic overhead charged to the intervention.",
+              "limited_evidence": "ACCEPT: abstract-only reports motivate the design but supply neither a verified effect size nor an established benefit."
+            },
+            "success_evaluation": "Use a frozen, policy-blind evaluator with reference answers or validators inaccessible to the agent.",
+            "tool_access": "All arms receive the same available tools. Blind retry is a restriction on recovery policy, not a restriction on which tools exist."
+          },
+          "dataset_requirements": {
+            "controls": "An outcome-independent subset of the same task pool for failure-free and no-viable-path controls, with allocation fixed before evaluation.",
+            "generated_data_if_unavoidable": "Only already available generated tasks may be considered. Audit encoded labels, generator-specific wording, unrealistic route symmetry, insufficient diversity, duplicate templates, and development-test overlap. If these cannot be controlled, restrict interpretation or declare inadequacy; do not generate or acquire resources here.",
+            "primary_population": "A prespecified equal-weight mixture of transient and persistent-path assignments on held-out task instances. This defines a controlled-failure estimand, not an estimate of an unknown deployment failure mixture.",
+            "separation": "Development tasks used to freeze prompts, B, and fault rules must be disjoint from evaluation tasks and preferably separated by task template or family. Evaluation answers and fault labels must not enter prompts.",
+            "state_and_fault_validity": "Existing tools must be nonmutating, idempotent, or support atomic failures without ambiguous partial side effects. An independent reference validator must establish task solvability, alternative-route feasibility, and fault persistence.",
+            "task_scope": "An already available, bounded tool-use task family with objective completion criteria, distinct task instances, and at least two genuine solution routes for the persistent-path regime."
+          },
+          "dependent_variables": {
+            "persistent_path_repeat_calls": "Calls made to the designated persistently unavailable operation/path after its first failed invocation.",
+            "task_success": "Binary externally verified completion of the original task before exceeding B calls. Abstention, incorrect completion, budget exhaustion, and agent timeout count as failure.",
+            "tool_calls_consumed": "All attempted tool calls from task start through termination, including failed calls and any diagnostic tool calls."
+          },
+          "evidence_ids": [
+            "EVID_0001",
+            "EVID_0002",
+            "EVID_0003",
+            "EVID_0004",
+            "EVID_0006"
+          ],
+          "expected_result_patterns": {
+            "contradicted": "An adequate primary interval entirely at or below zero contradicts the predicted advantage in this setting; increased diagnostic overhead without improved completion is consistent with an alternative explanation.",
+            "inconclusive": "A wide or zero-crossing interval, inadequate task diversity, invalid faults, or incomplete matched execution cannot distinguish the hypothesis from no benefit. A gain only against retained-context retry leaves diagnosis-specific attribution unresolved.",
+            "supported": "An adequate positive primary interval supports the composite-policy claim for the controlled failure mixture. A positive clean-context contrast and fewer persistent-path repeats strengthen, but do not prove, the proposed budget-allocation explanation."
+          },
+          "experiment_type": "Paired end-to-end controlled failure experiment with a context-contamination comparator",
+          "falsification_criteria": {
+            "invalid_null": "A zero or negative point estimate alone, especially with wide uncertainty or failed adequacy gates, is not falsification.",
+            "mechanism_limit": "If the composite advantage disappears against clean-context blind retry, context contamination remains a plausible explanation; this does not independently falsify diagnosis.",
+            "operational_contradiction": "With all adequacy gates passed, an upper 95% confidence bound for Delta_task at or below zero contradicts the predicted positive advantage in this tested setting.",
+            "small_positive_effects": "An interval that includes positive effects but excludes a prespecified practically meaningful gain can rule out that magnitude, not the exact claim of any positive advantage."
+          },
+          "follow_up_strategy": "If the primary contrast is positive and survives clean-context comparison, the next question is whether diagnostic information adds value beyond recovery options, as addressed by CAND_0002. If only the retained-context comparison is positive, prioritize separating context management from recovery selection. If transient and persistent regimes differ, reconsider transfer to realistic failure mixtures rather than averaging away the difference. An adequate contradiction warrants revisiting the proposed mechanism in this setting; an inadequate null warrants an adequacy decision, not automatic expansion. Neither candidate is selected or executed here.",
+          "inconclusive_criteria": "Declare inconclusive if the primary interval overlaps zero, exceeds the locked precision tolerance, or relies on inadequate independent task coverage; if faults or alternative routes are invalid; if task success is at floor or ceiling without room for informative policy differences; if controls reveal evaluator leakage or policy-independent breakage; or if resource exhaustion prevents the prespecified matched sample. Infrastructure failures must be distinguished from agent failures and cannot be selectively excluded by arm.",
+          "independent_variables": {
+            "failure_regime": {
+              "failure_free_control": "No injected failure; evaluated separately from the primary faulted-task mixture.",
+              "no_viable_path_control": "All relevant routes are unavailable; evaluated separately as a negative control, not as an opportunity for abstention to earn task-success credit.",
+              "persistent_path_specific": "A designated tool/path remains unavailable, while an alternative route is independently verified to remain feasible within the call cap.",
+              "transient": "One designated eligible invocation fails atomically, after which the same operation can succeed."
+            },
+            "fixed_budget": "One common maximum B tool calls per complete task, locked in Phase 7 before evaluation. B must permit a retry and a viable alternative completion in the recoverable regimes. B is not swept or tuned on evaluation outcomes.",
+            "recovery_policy": {
+              "blind_clean": "Use the same blind-retry rule, but restore textual context to immediately before the failed attempt and replay that operation. Preserve completed task progress, live environment state, and the cumulative call counter; neither calls nor environmental progress are reset.",
+              "blind_retained": "After failure, repeat the same failed tool operation with identical arguments without diagnosis or switching; retain the failed attempt in context. Resume the common task-solving policy after a successful retry.",
+              "error_aware": "After an observable failed attempt, explicitly diagnose using only available task history and tool feedback, then choose retry, an available alternative tool/path, or abstention."
+            }
+          },
+          "metric_rationale": "Task success directly matches the charter and exact hypothesis. A paired difference isolates the policy comparison at the same cap. Equal weighting prevents an unknown deployment failure prevalence from being silently inferred. Abstention can reduce wasted calls but cannot directly improve the primary metric.",
+          "planning_limitations": [
+            "Phase 7 must audit existing resources; no new data, model, evaluator, or environment may be acquired.",
+            "Phase 7 must lock B, inference ceilings, fault rules, control allocation, precision tolerance, independent task count, seed count, and bootstrap settings before outcomes.",
+            "Phase 7 must establish whether validation, all required arms, controls, and analysis fit within the remaining $10 and approximately 30 minutes. Cost and runtime are unknown, not zero.",
+            "If the minimum adequate contract cannot fit, do not silently remove controls, reduce the sample after observing outcomes, or report a null as falsification.",
+            "Evidence-reported gains are abstract-only, heterogeneous, and unsuitable as verified power assumptions.",
+            "Information-gain and feasibility scores are subjective planning judgments, not measurements."
+          ],
+          "potential_confounders": [
+            "Retained failed context may disadvantage blind retry independently of diagnostic action selection.",
+            "Alternative routes may be easier or more expensive than the original path.",
+            "Diagnostic overhead may cause token, time, or tool-call exhaustion.",
+            "Artificially recognizable error messages may reveal which recovery action is optimal.",
+            "Different trajectories can encounter a fixed fault at different times or not encounter it.",
+            "Partial side effects, shared caches, task-template dependence, or evaluator errors can invalidate pairing."
+          ],
+          "primary_metric": "Delta_task = the equally weighted mean of transient-regime and persistent-path-regime paired task-success-rate differences, error_aware minus blind_retained. Each unique task receives equal weight within each regime; seed repetitions are averaged within task. Positive values favor the hypothesis.",
+          "required_capabilities": [
+            "Enforce a common tool-call cap and common inference ceilings",
+            "Implement the three recovery conditions without changing the common task-solving policy",
+            "Apply matched fault assignments and reproducible seed blocks",
+            "Verify clean-context restoration without resetting calls or losing completed progress",
+            "Estimate uncertainty using independent task clusters rather than treating repeated seeds as independent tasks"
+          ],
+          "required_resources": [
+            "An already available agent model or endpoint with controllable inference limits",
+            "An existing held-out task pool and policy-blind completion evaluator",
+            "An existing isolated tool environment supporting atomic controlled faults and state cloning",
+            "A call ledger and trajectory records sufficient to audit recovery choices and context handling"
+          ],
+          "robustness_checks": [
+            "Inspect the clean-context comparator before attributing an advantage to recovery diagnosis rather than contamination.",
+            "Report the primary success metric separately by fault regime and task family, without changing the preregistered aggregate.",
+            "Use failure-free tasks to detect baseline degradation and no-viable-path tasks to check that abstention or invalid outputs are not scored as successful.",
+            "Audit a prespecified outcome-blind trajectory subset for call counting, retry fidelity, diagnosis timing, and forbidden state sharing."
+          ],
+          "sampling_strategy": "Select the smallest outcome-independent held-out task sample that can meet a preregistered precision target within the resource ceiling. Pair each task across policies and recoverable fault regimes; randomize execution order and use prespecified seeds. Phase 7 must determine the number of independent task clusters and repetitions from available task diversity, defensible variance assumptions, and execution estimates. No sample-size or power claim is available from the supplied evidence.",
+          "secondary_metrics": [
+            "Clean-context sensitivity: compute the same weighted task-success contrast for error_aware minus blind_clean, using the same task-level aggregation. This is a prespecified robustness contrast, not a replacement primary outcome.",
+            "Recovery-call profile: report mean total calls and mean persistent_path_repeat_calls by arm. The latter counts repeated use of an objectively unavailable path, not an inferred belief that the agent knew it was unavailable."
+          ],
+          "success_criteria": {
+            "adequacy_gates": "Require valid task scoring, verified fault behavior and route feasibility, no leakage, correct budget enforcement, adequate independent task coverage, and a confidence-interval width no larger than a positive precision tolerance fixed in Phase 7 before outcomes.",
+            "completion_is_not_support": "Successful software execution or fewer wasted calls without a positive task-success contrast does not meet the scientific support criterion.",
+            "primary_support": "After all validity and adequacy gates pass, the lower endpoint of a prespecified two-sided 95% confidence interval for Delta_task must exceed zero.",
+            "scope": "Support applies to the frozen model, budget, task family, and controlled failure mixture. A gain only against retained-context retry supports a narrower comparator-specific claim.",
+            "uncertainty_method": "Use a paired task-cluster bootstrap, preserving all arms, regimes, and seeds within each resampled task. Phase 7 must verify adequate independent clusters for this method before execution; otherwise this contract is not inferentially runnable."
+          }
+        },
+        "version": 1
+      },
+      {
+        "created_at": "2026-10-04T03:06:35.734964Z",
+        "candidate_id": "CAND_0002",
+        "project_id": "PROJECT_SELECTION_READY",
+        "hypothesis_id": "HYP_0001",
+        "hypothesis_version": 1,
+        "title": "Checkpoint diagnostic-information ablation with matched recovery options",
+        "objective": "Test the fixed-budget task-success prediction conditional on a failed attempt, while separating the contribution of informative diagnosis from merely permitting retry, switching, and abstention.",
+        "approach": "Branch already available held-out task states immediately after a failed tool attempt. Compare a recovery controller with authentic diagnostic feedback, the same controller with fault-specific feedback masked, and blind retry with authentic feedback. All branches share the same completed prefix, environment state, remaining calls, tool catalog, and inference ceilings. This is an information intervention at a fixed recovery checkpoint, not another end-to-end sample-size variant.",
+        "expected_information_gain": 0.8,
+        "estimated_cost_usd": null,
+        "estimated_runtime_minutes": null,
+        "feasibility_score": 0.4,
+        "major_risks": [
+          "Existing clonable post-failure states and an information-masking capability may be unavailable.",
+          "Masking can create an artificial distribution shift or remove task-relevant information beyond diagnosis.",
+          "Conditioning on selected failure checkpoints limits conclusions about complete deployment trajectories.",
+          "Too few independent checkpoints or diagnostic overhead may prevent an interpretable comparison within the resource limits."
+        ],
+        "status": "PROPOSED",
+        "design": {
+          "assumptions": [
+            "A generic failure indicator can be separated from fault-specific information without altering task state.",
+            "The diagnostic and masked controllers differ only in the intended information intervention.",
+            "Recovery alternatives are genuine and reachable within the shared remaining budget.",
+            "Independent reference validation can determine completion without exposing solutions to the model.",
+            "Conditional findings are not silently generalized to all tasks or natural failure frequencies.",
+            "No success credit is awarded for abstention, and no saved budget is transferred between tasks."
+          ],
+          "controls": {
+            "abstention": "Unused calls cannot be pooled across tasks. An appropriate abstention may demonstrate sensible behavior but never counts as task success.",
+            "blind_comparison": "The diagnostic and blind conditions receive the same authentic failure feedback. Their primary difference is whether feedback may guide recovery choices.",
+            "evaluation": "Use the same frozen policy-blind task validator across branches. Hidden fault metadata is available only to the experimental audit, never to the agent.",
+            "inference_fairness": "Use identical model/version, decoding configuration, per-branch model-token and invocation ceilings, and remaining tool-call budgets. No free diagnostic tool calls or oracle explanations are allowed.",
+            "masking": "Replace only the failure-specific content with a common generic failure message. Preserve legitimate task inputs, operation identity, and argument history. Use a common response envelope and comparable context allocation; do not insert the true fault class, optimal action, or other encoded labels.",
+            "randomization_and_isolation": "Run every checkpoint under every condition with prespecified matched seeds; randomize branch order and isolate model memory, caches, and mutable environment state.",
+            "review_disposition": {
+              "abstract_only_support": "ACCEPT: no supplied evidence establishes that this exact information intervention will improve success.",
+              "bundle_discrimination": "ACCEPT: matching action sets between diagnostic and masked conditions separates useful diagnostic information from option availability.",
+              "limits_of_ablation": "CLARIFY: masking tests the incremental value of the removed feedback, not every possible form of error-awareness."
+            },
+            "same_action_set": "The diagnostic and masked conditions have exactly the same tools, recovery options, controller prompt, and action-selection mechanism. Only diagnostic feedback content differs.",
+            "shared_prefix": "Checkpoint inclusion and completed prefixes are determined without reference to any experimental branch outcome. Clone textual history, environment state, completed progress, and call ledger."
+          },
+          "dataset_requirements": {
+            "artifact_audit": "If existing synthetic tasks or injected errors are used, inspect generator artifacts, encoded recovery labels, unrealistic error clarity, duplicate templates, insufficient route diversity, and test contamination. Unresolved artifacts limit validity.",
+            "checkpoint_selection": "Prefer the first eligible failure per task under a frozen common prefix policy. Do not select checkpoints because the diagnostic branch succeeds or blind retry fails.",
+            "counterfactual_validity": "The fault state must be shared across branches, with an atomic failure and a verified retry or alternative completion path. Diagnostic feedback must be plausible output of the existing tool, not an oracle fault-class label.",
+            "existing_checkpoints": "Already available held-out tasks with valid post-failure snapshots, or an existing environment capable of producing and cloning such snapshots during a later approved run. Nothing is created or acquired at this stage.",
+            "held_out_separation": "Separate prompt and masking development from evaluation by task instance and, where possible, template/family. Keep task solutions, hidden fault causes, and reference recovery routes inaccessible to the model.",
+            "primary_population": "Equal weighting of transient and persistent-path checkpoint regimes. Average multiple eligible checkpoints and seeds within each original task so one task cannot dominate through repeated failures.",
+            "sampling_frame": "Define eligible checkpoints before outcomes: an objectively failed tool operation, intact task state, a known prefix call count, and a verified feasible recovery route for recoverable regimes."
+          },
+          "dependent_variables": {
+            "persistent_path_repeat_calls": "Number of post-checkpoint calls to the persistently unavailable path.",
+            "recovery_action": "The first post-checkpoint action classified as retry, switch, or abstention using prespecified tool/path definitions.",
+            "task_success": "Binary completion of the original task verified after branching and before the cumulative full-task call count exceeds B. Abstention is unsuccessful."
+          },
+          "evidence_ids": [
+            "EVID_0001",
+            "EVID_0002",
+            "EVID_0006"
+          ],
+          "expected_result_patterns": {
+            "contradicted": "An adequate primary interval entirely at or below zero contradicts the predicted recovery-stage advantage in the tested checkpoint population. A resolved lack of diagnostic benefit despite gains from flexible recovery challenges the diagnosis-specific explanation rather than the entire composite claim.",
+            "inconclusive": "Wide intervals, invalid masking, insufficient task diversity, or infeasible counterfactual routes prevent interpretation. A positive primary result with an unresolved information-ablation contrast leaves diagnosis versus action-set breadth uncertain.",
+            "supported": "An adequate positive primary interval supports the conditional fixed-budget recovery advantage. A positive diagnostic-minus-masked contrast with fewer persistent-path repeats additionally favors useful diagnostic feedback as a contributor."
+          },
+          "experiment_type": "Paired post-failure branching experiment with a randomized diagnostic-information intervention",
+          "falsification_criteria": {
+            "diagnosis_explanation": "If diagnostic and masked recovery are practically indistinguishable under a prespecified secondary precision criterion while both outperform blind retry, the benefit is more consistent with flexible recovery options than the removed diagnostic information. This weakens that explanatory component without falsifying the composite policy claim.",
+            "null_limit": "An imprecise zero diagnostic-minus-masked estimate cannot establish that diagnosis is irrelevant, and an imprecise primary null cannot falsify the hypothesis.",
+            "operational_contradiction": "With all adequacy gates passed, an upper 95% confidence bound for Delta_checkpoint at or below zero contradicts a positive recovery-stage advantage in this checkpoint population.",
+            "overhead_pattern": "An adequately negative primary contrast with more budget consumed before productive recovery is consistent with diagnosis overhead outweighing its benefit."
+          },
+          "follow_up_strategy": "If diagnostic recovery beats blind retry and its advantage over masked recovery is also credibly positive, the next decision is whether that information-sensitive mechanism survives end-to-end evaluation and realistic failure mixtures. If diagnostic and masked recovery both beat blind retry without a resolved difference, focus subsequent inquiry on action-set breadth rather than claiming diagnosis-specific causality. If diagnostic information worsens completion, investigate overhead or misleading feedback before expanding the policy. If branch validity or sample adequacy fails, resolve that specific feasibility issue before further testing. These are conditional scientific decisions, not execution instructions or selection of a winning candidate.",
+          "inconclusive_criteria": "Declare inconclusive if the primary interval crosses zero or exceeds the locked precision tolerance; if too few independent tasks are available; if checkpoints lack a feasible alternative within B-c calls; if masking leaks fault information, removes necessary task facts, or causes uncontrolled distribution shift; if success scoring or prefix accounting is invalid; or if the resource ceiling prevents the prespecified matched branches. A clear primary gain with uncertain diagnostic-minus-masked results supports the conditional composite claim but leaves its mechanism unresolved.",
+          "independent_variables": {
+            "budget": "A single full-task call cap B is fixed before evaluation. A checkpoint with c prefix calls leaves exactly B-c calls in every branch. Failed prefix calls count, and no branch receives a fresh budget.",
+            "checkpoint_regime": {
+              "no_viable_path_control": "No route can complete within the available environment; this control is excluded from the primary recoverable mixture.",
+              "persistent_path_specific": "The failed path remains unavailable but an alternative completion route is feasible within the remaining calls.",
+              "transient": "A failed operation can succeed on retry."
+            },
+            "recovery_condition": {
+              "blind_retry": "The common agent receives the authentic feedback but must repeat the failed operation with identical arguments, without diagnostic action selection or switching. Resume the common task-solving policy after a successful retry.",
+              "diagnostic_feedback": "The controller receives authentic tool-failure feedback and explicitly diagnoses before choosing retry, switching, or abstention.",
+              "masked_feedback": "The identical controller and recovery action set receive the same operation history and a standardized failure indicator, but fault-specific diagnostic content is removed. The controller may reason from remaining information; this is an information ablation, not an assertion that all diagnosis is eliminated."
+            }
+          },
+          "metric_rationale": "The primary metric retains the hypothesis's task-success endpoint and fixed full-task budget while concentrating effort on states where recovery can matter. The matched-option information ablation distinguishes whether a positive policy effect depends on informative feedback or merely on a broader action set. Conditional checkpoint success does not establish the frequency or aggregate impact of such states in deployment.",
+          "planning_limitations": [
+            "Phase 7 must audit whether state cloning, authentic feedback, masking, and independent evaluation already exist; acquisition is not permitted.",
+            "Phase 7 must lock checkpoint eligibility, the common prefix policy, B, inference ceilings, feedback transformation, regime weights, seed count, task count, precision tolerances, and bootstrap settings before outcomes.",
+            "Adequacy planning needs justified variance or precision assumptions and sufficient independent task diversity; supplied abstract-only gains cannot fill these gaps.",
+            "All prefix preparation, validation, three-condition branching, controls, and analysis must fit the remaining $10 and approximately 30 minutes. Cost and runtime remain unknown.",
+            "Masking validity is a prerequisite, not an implementation detail to waive after seeing results.",
+            "Information-gain and feasibility scores are advisory planning judgments, not empirical estimates."
+          ],
+          "potential_confounders": [
+            "Checkpoint selection can enrich for unusually easy-to-diagnose failures.",
+            "Residual history may reveal the fault despite masking.",
+            "Masking may impair comprehension independently of recovery diagnosis.",
+            "Authentic messages may contain unrealistically explicit recovery instructions.",
+            "Different prefix lengths change remaining budget and must remain matched within checkpoints.",
+            "Multiple checkpoints from one task can create pseudoreplication.",
+            "Switching may work because of action-set breadth even without informative diagnosis."
+          ],
+          "primary_metric": "Delta_checkpoint = the equally weighted mean of transient-regime and persistent-path-regime task-success-rate differences, diagnostic_feedback minus blind_retry, conditional on the prespecified checkpoint population. Average seeds and checkpoints within each original task before giving tasks equal weight.",
+          "required_capabilities": [
+            "Clone failed-attempt states while retaining original prefix costs",
+            "Change diagnostic feedback without changing available recovery actions or environment state",
+            "Prevent hidden fault labels and reference routes from leaking into agent context",
+            "Verify that masked histories do not retain the removed diagnostic information through another field",
+            "Analyze matched branches with uncertainty clustered by original task"
+          ],
+          "required_resources": [
+            "An existing agent model with bounded inference and reproducible configuration",
+            "An already available held-out task/checkpoint pool or state-clonable evaluation environment",
+            "Authentic or validated tool-failure feedback and a narrowly scoped masking facility",
+            "An existing objective task validator and cumulative call ledger"
+          ],
+          "robustness_checks": [
+            "Report the primary and decomposition contrasts separately by fault regime and remaining-budget band, using bands fixed before outcomes.",
+            "Audit an outcome-blind checkpoint subset for masking fidelity, realistic feedback, route feasibility, and hidden-label leakage.",
+            "Use no-viable-path controls to verify that correct abstention and plausible but invalid answers still receive zero task-success credit.",
+            "Inspect seed and task-family dependence without promoting a favorable subgroup to the primary endpoint."
+          ],
+          "sampling_strategy": "Sample eligible held-out checkpoints independently of branch outcomes, stratified by transient and persistent-path regimes. Use matched branching and prespecified seeds, with original tasks as independent sampling clusters. Phase 7 must determine the smallest adequate number of independent tasks from task diversity, defensible paired-variance assumptions, the locked precision target, and total branch costs. No numerical power calculation is justified by the supplied evidence.",
+          "secondary_metrics": [
+            "Success decomposition: prespecified contrasts diagnostic_feedback minus masked_feedback, and masked_feedback minus blind_retry. These decompose the primary contrast into the value of removed diagnostic feedback and the residual advantage of flexible recovery. Treat them as exploratory mechanism estimates, not additional confirmatory endpoints.",
+            "Recovery allocation: first-action proportions for retry, switch, and abstention, plus mean persistent_path_repeat_calls. Define categories from tool/path identity before evaluation; these are descriptive mechanism checks, not substitutes for task success."
+          ],
+          "success_criteria": {
+            "adequacy_gates": "Require verified reachable recovery routes, correct prefix accounting, valid feedback masking, uncontaminated evaluation, sufficient independent task coverage, and a primary interval width within a positive precision tolerance fixed in Phase 7 before outcomes.",
+            "mechanism_interpretation": "A positive diagnostic-minus-masked contrast accompanied by less persistent-path repetition is consistent with useful diagnostic information. This is a prespecified exploratory interpretation; it is not independent confirmation or proof of mediation.",
+            "primary_support": "After validity and adequacy gates pass, the lower bound of a prespecified two-sided 95% confidence interval for Delta_checkpoint must exceed zero.",
+            "scope": "Support is conditional on eligible post-failure states, the frozen model and budget, and the specified regime mixture. It does not by itself establish an end-to-end deployment advantage.",
+            "uncertainty_method": "Use a paired original-task-cluster bootstrap that preserves checkpoints, regimes, conditions, and seeds within each task. Phase 7 must verify adequate independent clusters before execution."
+          }
+        },
+        "version": 1
+      }
+    ],
+    "experiments": [],
+    "resources": [],
+    "readiness": [],
+    "implementations": [],
+    "runs": [],
+    "metrics": [],
+    "analyses": [],
+    "decisions": [
+      {
+        "created_at": "2026-10-04T03:03:24.729763Z",
+        "decision_id": "DEC_0003",
+        "project_id": "PROJECT_SELECTION_READY",
+        "action": "DESIGN_EXPERIMENT",
+        "target_agent": "experiment_designer",
+        "reason": "The highest-value next step is to design the smallest rigorous comparison that directly tests the charter under the exact fixed tool-call budget condition, because current evidence is abstract-only and the leading PASS-reviewed hypotheses remain unresolved. Among the PASS-reviewed options, HYP_0001 is the most directly aligned with the research question: it compares error-aware recovery against blind retry on the primary outcome of task success rate under matched budgets. Designing the experiment now reduces key uncertainty more efficiently than gathering more broad evidence or refining hypotheses further, while remaining cheaper and safer than implementation or execution. This action should operationalize a minimal matched evaluation and explicitly address the critic concern that the mechanism is composite by clarifying whether the study tests the composite policy claim or isolates diagnosis from available recovery actions.",
+        "expected_information_gain": 0.85,
+        "goal_alignment": 0.97,
+        "required_context_ids": [
+          "HYP_0001"
+        ],
+        "remaining_budget_usd": 10.0
+      }
+    ],
+    "costs": [],
+    "events": [
+      {
+        "created_at": "2026-10-04T03:03:24.729640Z",
+        "event_id": "EVENT_0001",
+        "project_id": "PROJECT_SELECTION_READY",
+        "event_type": "HYPOTHESIS_SELECTED",
+        "actor": "planner",
+        "target_type": "hypotheses",
+        "target_id": "HYP_0001",
+        "summary": "Planner selected an exact reviewed hypothesis version for future design",
+        "payload": {
+          "decision_id": "DEC_0003",
+          "hypothesis_id": "HYP_0001",
+          "reason": "The highest-value next step is to design the smallest rigorous comparison that directly tests the charter under the exact fixed tool-call budget condition, because current evidence is abstract-only and the leading PASS-reviewed hypotheses remain unresolved. Among the PASS-reviewed options, HYP_0001 is the most directly aligned with the research question: it compares error-aware recovery against blind retry on the primary outcome of task success rate under matched budgets. Designing the experiment now reduces key uncertainty more efficiently than gathering more broad evidence or refining hypotheses further, while remaining cheaper and safer than implementation or execution. This action should operationalize a minimal matched evaluation and explicitly address the critic concern that the mechanism is composite by clarifying whether the study tests the composite policy claim or isolates diagnosis from available recovery actions.",
+          "version": 1
+        }
+      },
+      {
+        "created_at": "2026-10-04T03:03:24.730922Z",
+        "event_id": "EVENT_0002",
+        "project_id": "PROJECT_SELECTION_READY",
+        "event_type": "EXPERIMENT_DESIGN_STARTED",
+        "actor": "experiment_designer",
+        "target_type": null,
+        "target_id": null,
+        "summary": "Beginning smallest-informative-test design",
+        "payload": {
+          "hypothesis_id": "HYP_0001",
+          "hypothesis_version": 1
+        }
+      },
+      {
+        "created_at": "2026-10-04T03:06:35.735432Z",
+        "event_id": "EVENT_0003",
+        "project_id": "PROJECT_SELECTION_READY",
+        "event_type": "EXPERIMENT_CANDIDATE_CREATED",
+        "actor": "experiment_designer",
+        "target_type": "experiment_candidates",
+        "target_id": "CAND_0001",
+        "summary": "Structured scientific proposal registered before results",
+        "payload": {
+          "hypothesis_id": "HYP_0001",
+          "hypothesis_version": 1,
+          "version": 1
+        }
+      },
+      {
+        "created_at": "2026-10-04T03:06:35.735503Z",
+        "event_id": "EVENT_0004",
+        "project_id": "PROJECT_SELECTION_READY",
+        "event_type": "EXPERIMENT_CANDIDATE_CREATED",
+        "actor": "experiment_designer",
+        "target_type": "experiment_candidates",
+        "target_id": "CAND_0002",
+        "summary": "Structured scientific proposal registered before results",
+        "payload": {
+          "hypothesis_id": "HYP_0001",
+          "hypothesis_version": 1,
+          "version": 1
+        }
+      },
+      {
+        "created_at": "2026-10-04T03:08:04.150363Z",
+        "event_id": "EVENT_0005",
+        "project_id": "PROJECT_SELECTION_READY",
+        "event_type": "EXPERIMENT_CANDIDATE_REVIEWED",
+        "actor": "critic",
+        "target_type": "experiment_candidates",
+        "target_id": "CAND_0001",
+        "summary": "Scientific Critic assessed the exact proposal version",
+        "payload": {
+          "review_id": "ERREV_0001",
+          "verdict": "PASS",
+          "version": 1
+        }
+      },
+      {
+        "created_at": "2026-10-04T03:08:04.150426Z",
+        "event_id": "EVENT_0006",
+        "project_id": "PROJECT_SELECTION_READY",
+        "event_type": "EXPERIMENT_CANDIDATE_REVIEWED",
+        "actor": "critic",
+        "target_type": "experiment_candidates",
+        "target_id": "CAND_0002",
+        "summary": "Scientific Critic assessed the exact proposal version",
+        "payload": {
+          "review_id": "ERREV_0002",
+          "verdict": "PASS",
+          "version": 1
+        }
+      },
+      {
+        "created_at": "2026-10-04T03:08:04.151447Z",
+        "event_id": "EVENT_0007",
+        "project_id": "PROJECT_SELECTION_READY",
+        "event_type": "EXPERIMENT_DESIGN_COMPLETED",
+        "actor": "experiment_designer",
+        "target_type": null,
+        "target_id": null,
+        "summary": "Registered 2 designs and 2 reviews; 0 revision rounds. Control returns to Planner.",
+        "payload": {
+          "candidate_ids": [
+            "CAND_0001",
+            "CAND_0002"
+          ],
+          "experiment_id": null,
+          "final_candidate_ids": [
+            "CAND_0001",
+            "CAND_0002"
+          ],
+          "hypothesis_id": "HYP_0001",
+          "hypothesis_version": 1,
+          "project_id": "PROJECT_0001",
+          "rejected_candidate_ids": [],
+          "review_ids": [
+            "ERREV_0001",
+            "ERREV_0002"
+          ],
+          "revision_rounds": 0,
+          "selected_candidate_id": null,
+          "summary": "Registered 2 designs and 2 reviews; 0 revision rounds. Control returns to Planner.",
+          "unresolved_candidate_ids": [],
+          "warnings": [
+            "Costs/runtime are planning assumptions or unknown; Phase 7 must resolve them.",
+            "PASS certifies a design proposal, not prepared resources, adequate power, or approval to execute."
+          ]
+        }
+      },
+      {
+        "created_at": "2026-10-04T03:08:04.152035Z",
+        "event_id": "EVENT_0008",
+        "project_id": "PROJECT_SELECTION_READY",
+        "event_type": "SPECIALIST_COMPLETED",
+        "actor": "orchestrator",
+        "target_type": "decisions",
+        "target_id": "DEC_0003",
+        "summary": "Experimental Scientist and existing Scientific Critic returned control to Planner",
+        "payload": {
+          "candidate_ids": [
+            "CAND_0001",
+            "CAND_0002"
+          ],
+          "decision_id": "DEC_0003",
+          "review_ids": [
+            "ERREV_0001",
+            "ERREV_0002"
+          ],
+          "role": "experiment_designer"
+        }
+      }
+    ]
+  }
+}

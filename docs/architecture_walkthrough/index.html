@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="A minimal interactive diagram of AutoLab's adaptive research architecture.">
+  <title>AutoLab · Technical Architecture</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<main id="viewport" aria-label="AutoLab technical architecture">
+<div id="canvas">
+  <header class="heading"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M12 3h8m-6 0v10L5 26q-1 3 3 3h16q4 0 3-3l-9-13V3M10 21h12"/></svg><h1>AutoLab</h1></header>
+  <div class="presentation-controls">
+    <button id="walkthrough-toggle" aria-pressed="false">▷ &nbsp;Walkthrough</button>
+    <div id="walkthrough-controls" hidden>
+      <button id="previous" aria-label="Previous walkthrough stage">←</button>
+      <span id="step-count">01 / 16</span>
+      <button id="next" aria-label="Next walkthrough stage">→</button>
+    </div>
+  </div>
+  <svg id="connections" viewBox="0 0 1920 1080" aria-hidden="true">
+    <defs>
+      <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1L7 4L1 7" fill="none" stroke="context-stroke" stroke-width="1.7"/></marker>
+      <marker id="feedback-arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1L10 6L1 11" fill="none" stroke="context-stroke" stroke-width="2.5"/></marker>
+    </defs>
+    <g id="ledger-connections"></g>
+    <g class="routes">
+      <path data-from="charter" data-to="planner" d="M880 164H945"/>
+      <path data-from="planner" data-to="evidence" d="M1000 200V242Q1000 251 990 251H290Q280 251 280 261V306"/>
+      <path data-from="planner" data-to="hypothesis" d="M1080 200V268Q1080 275 1070 275H670Q660 275 660 285V306"/>
+      <path data-from="planner" data-to="designer" d="M1300 200V242Q1300 251 1310 251H1460Q1470 251 1470 261V306"/>
+      <path class="artifact-route" data-from="evidence" data-to="hypothesis" d="M450 356H490"/>
+      <path data-from="hypothesis" data-to="critic" d="M830 356H890"/>
+      <path data-from="designer" data-to="critic" d="M1270 356H1230"/>
+      <path class="review-return" data-from="critic" data-to="planner" d="M1160 306V291Q1160 284 1167 284H1398Q1405 284 1405 277V195Q1405 185 1385 185"/>
+      <path data-from="planner" data-to="spec" d="M1385 178H1740Q1755 178 1755 193V526Q1755 541 1740 541H1570"/>
+      <path data-from="spec" data-to="feasibility" d="M1250 541H1205"/>
+      <path data-from="feasibility" data-to="approval" d="M855 541H810"/>
+      <path class="approval-route" data-from="approval" data-to="preparation" d="M430 553H222Q210 553 210 565V631"/>
+      <path data-from="preparation" data-to="manifest" d="M350 691H375"/>
+      <path data-from="manifest" data-to="readiness" d="M575 691H600"/>
+      <path data-from="readiness" data-to="implementation" d="M880 691H905"/>
+      <path class="repair-route" data-from="readiness" data-to="preparation" d="M740 631V627Q740 620 733 620H280Q273 620 273 627V631"/>
+      <path data-from="implementation" data-to="validators" d="M1185 691H1210"/>
+      <path data-from="validators" data-to="code-auditor" d="M1460 691H1485"/>
+      <path class="repair-route" data-from="code-auditor" data-to="implementation" d="M1640 631V627Q1640 620 1633 620H1070Q1063 620 1063 627V631"/>
+      <path data-from="code-auditor" data-to="runner" d="M1650 751V775Q1650 785 1643 785H495Q485 785 485 800V823"/>
+      <path data-from="runner" data-to="metrics" d="M670 878H695"/>
+      <path data-from="metrics" data-to="analysis" d="M1065 878H1090"/>
+      <path class="analysis-review" data-from="analysis" data-to="critic" d="M1425 878H1445"/>
+      <path class="analysis-review" data-from="critic" data-to="reviewed" d="M1445 878H1470"/>
+      <path class="feedback-route" data-from="reviewed" data-to="planner" d="M1805 878H1847Q1872 878 1872 853V119Q1872 94 1847 94H1410Q1385 94 1385 119"/>
+    </g>
+  </svg>
+
+  <article class="node human charter" id="charter" role="button" tabindex="0" aria-pressed="false" style="--x:520;--y:104;--w:360;--h:96"><h2>Research Charter</h2></article>
+  <article class="node agent planner" id="planner" role="button" tabindex="0" aria-pressed="false" style="--x:945;--y:104;--w:440;--h:96"><h2>PI / Planner</h2></article>
+  <article class="node agent" id="evidence" role="button" tabindex="0" aria-pressed="false" style="--x:110;--y:306;--w:340;--h:100"><h2>Evidence Agent</h2></article>
+  <article class="node agent" id="hypothesis" role="button" tabindex="0" aria-pressed="false" style="--x:490;--y:306;--w:340;--h:100"><h2>Hypothesis Agent</h2></article>
+  <article class="node agent critic" id="critic" role="button" tabindex="0" aria-pressed="false" style="--x:890;--y:306;--w:340;--h:100"><h2>Scientific Critic</h2></article>
+  <article class="node agent" id="designer" role="button" tabindex="0" aria-pressed="false" style="--x:1270;--y:306;--w:400;--h:100"><h2>Experiment Designer</h2></article>
+  <article class="node contract" id="spec" role="button" tabindex="0" aria-pressed="false" style="--x:1250;--y:504;--w:320;--h:100"><h2>ExperimentSpec</h2></article>
+  <article class="node deterministic feasibility" id="feasibility" role="button" tabindex="0" aria-pressed="false" style="--x:855;--y:504;--w:350;--h:100"><h2>Cost / Feasibility</h2></article>
+  <article class="node human approval" id="approval" role="button" tabindex="0" aria-pressed="false" style="--x:430;--y:499;--w:380;--h:110"><h2>Human Approval</h2></article>
+  <article class="node agent" id="preparation" role="button" tabindex="0" aria-pressed="false" style="--x:70;--y:631;--w:280;--h:120"><h2>Preparation Agent</h2></article>
+  <article class="node contract" id="manifest" role="button" tabindex="0" aria-pressed="false" style="--x:375;--y:631;--w:200;--h:120"><h2>Resource<br>Manifest</h2></article>
+  <article class="node agent auditor" id="readiness" role="button" tabindex="0" aria-pressed="false" style="--x:600;--y:631;--w:280;--h:120"><h2>Readiness Auditor</h2></article>
+  <article class="node agent" id="implementation" role="button" tabindex="0" aria-pressed="false" style="--x:905;--y:631;--w:280;--h:120"><h2>Implementation Agent</h2></article>
+  <article class="node deterministic" id="validators" role="button" tabindex="0" aria-pressed="false" style="--x:1210;--y:631;--w:250;--h:120"><h2>Static / Deterministic Validators</h2></article>
+  <article class="node agent auditor" id="code-auditor" role="button" tabindex="0" aria-pressed="false" style="--x:1485;--y:631;--w:330;--h:120"><h2>Code Auditor</h2></article>
+  <article class="node deterministic runner" id="runner" role="button" tabindex="0" aria-pressed="false" style="--x:300;--y:823;--w:370;--h:110"><h2>Experiment Runner</h2></article>
+  <article class="node deterministic metrics" id="metrics" role="button" tabindex="0" aria-pressed="false" style="--x:695;--y:823;--w:370;--h:110"><h2>Deterministic Metrics</h2></article>
+  <article class="node agent" id="analysis" role="button" tabindex="0" aria-pressed="false" style="--x:1090;--y:823;--w:335;--h:110"><h2>Analysis Agent</h2></article>
+  <article class="node contract reviewed" id="reviewed" role="button" tabindex="0" aria-pressed="false" style="--x:1470;--y:823;--w:335;--h:110"><h2>Reviewed Analysis</h2></article>
+  <button id="critic-checkpoint" class="critic-reference" aria-label="Focus the same Scientific Critic reused for final analysis">Scientific Critic ↺</button>
+  <div class="feedback-label">Result → Next decision</div>
+  <section class="control-plane" id="control" role="button" tabindex="0" aria-pressed="false"><h2>Deterministic Control Plane</h2></section>
+  <section class="research-ledger" id="ledger" role="button" tabindex="0" aria-pressed="false"><h2>Research Ledger</h2></section>
+  <div id="walkthrough-caption" class="sr-only" role="status" aria-live="polite"></div>
+</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{"results": [
+  {"id":"https://openalex.org/W10001", "title":"Tool Recovery Study", "publication_year":2024, "doi":"https://doi.org/10.1234/recovery", "authorships":[{"author":{"display_name":"Fixture Author"}}], "abstract_inverted_index":{"Recovery":[0],"improved":[1],"task":[2],"success":[3],"in":[4],"this":[5],"benchmark.":[6]}, "cited_by_count":12, "primary_location":{"landing_page_url":"https://arxiv.org/abs/2401.00001", "source":{"display_name":"Fixture Venue"}}, "open_access":{"is_oa":true,"oa_status":"green"}, "topics":[{"display_name":"Artificial intelligence"}]},
+  {"id":"https://openalex.org/W10002", "title":"Recovery Limits", "publication_year":2025, "abstract_inverted_index":{"Recovery":[0],"did":[1],"not":[2],"improve":[3],"success":[4],"under":[5],"strict":[6],"budgets.":[7]}, "primary_location":{"landing_page_url":"https://example.org/paper/limits"}},
+  {"id":"https://openalex.org/W10003", "title":"Missing Abstract", "authorships":[]},
+  {"id":"malformed", "title":"Invalid record"}
+]}

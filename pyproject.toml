@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autolab"
+version = "0.1.0"
+description = "Minimal local setup for an adaptive scientific lab using Omnigent"
+requires-python = ">=3.12"
+dependencies = [
+  "omnigent[agents-sdk]==0.16.0",
+  "python-dotenv==1.2.4",
+  "pydantic==2.13.5",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+autolab = "autolab.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
